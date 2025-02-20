@@ -16,7 +16,7 @@ const partners = [
   },
   {
     name: 'PancakeSwap',
-    logo: '/images/partners/pancakeswap-cake-logo.png',
+    logo: '/images/partners/pancakeswap-cake-logo.svg',
     url: 'https://pancakeswap.finance/?outputCurrency=0xAC3C6176511771129568Ea308Dd151073498DC7d',
     description: 'Leading decentralized exchange on BNB Chain',
   },
