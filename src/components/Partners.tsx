@@ -10,7 +10,7 @@ const partners = [
   },
   {
     name: 'CoinGecko',
-    logo: '/images/partners/CoinGecko Logo.svg',
+    logo: '/images/partners/coingecko-logo.svg',
     url: 'https://www.geckoterminal.com/bsc/pools/0x667d805408a2bd9cc84eeab1e480240a4e3cc92b?utm_source=coingecko&utm_medium=referral&utm_campaign=searchresults',
     description: 'Trusted cryptocurrency data aggregator',
   },
