@@ -17,23 +17,25 @@ export default function useAnimatedNumber(
   const { duration = 1000, delay = 0, easing = defaultEasing } = options;
 
   const [displayValue, setDisplayValue] = useState(0);
-  const startValueRef = useRef(0);
+  const currentValueRef = useRef(displayValue);
+
+  useEffect(() => {
+    currentValueRef.current = displayValue;
+  }, [displayValue]);
 
   useEffect(() => {
     let startTime: number | null = null;
     let animationFrame: number;
-
-    startValueRef.current = displayValue;
 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
       const progress = Math.min(1, elapsed / duration);
       const easedProgress = easing(progress);
-      const currentValue =
-        startValueRef.current + (endValue - startValueRef.current) * easedProgress;
+      const nextValue =
+        currentValueRef.current + (endValue - currentValueRef.current) * easedProgress;
 
-      setDisplayValue(currentValue);
+      setDisplayValue(nextValue);
 
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate);
