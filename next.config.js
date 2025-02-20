@@ -3,15 +3,29 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  output: 'standalone',
   images: {
-    domains: ['github.com', 'raw.githubusercontent.com'],
     unoptimized: true,
   },
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+  // Ensure static files are copied to the correct location
+  async rewrites() {
+    return [
+      {
+        source: '/images/:path*',
+        destination: '/images/:path*',
+      },
+    ];
   },
-  // Enable static exports for better performance
-  output: 'standalone',
+  // Copy static files to output directory
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+        path: false,
+      };
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;

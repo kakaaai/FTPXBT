@@ -25,6 +25,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
+# Create symlink for public directory
+RUN ln -s /app/public /app/standalone/public
+
 # Expose port
 EXPOSE 3000
 
