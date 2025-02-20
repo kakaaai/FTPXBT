@@ -1,17 +1,17 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: [],
+    domains: ['github.com', 'raw.githubusercontent.com'],
+    unoptimized: true,
   },
-  webpack: config => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
-    return config;
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
+  // Enable static exports for better performance
+  output: 'standalone',
 };
 
 module.exports = nextConfig;
