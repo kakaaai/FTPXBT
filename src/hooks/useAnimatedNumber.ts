@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface UseAnimatedNumberOptions {
   duration?: number;
@@ -17,19 +17,21 @@ export default function useAnimatedNumber(
   const { duration = 1000, delay = 0, easing = defaultEasing } = options;
 
   const [displayValue, setDisplayValue] = useState(0);
+  const startValueRef = useRef(0);
 
   useEffect(() => {
     let startTime: number | null = null;
     let animationFrame: number;
 
-    const startValue = displayValue;
+    startValueRef.current = displayValue;
 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
       const progress = Math.min(1, elapsed / duration);
       const easedProgress = easing(progress);
-      const currentValue = startValue + (endValue - startValue) * easedProgress;
+      const currentValue =
+        startValueRef.current + (endValue - startValueRef.current) * easedProgress;
 
       setDisplayValue(currentValue);
 
@@ -48,7 +50,7 @@ export default function useAnimatedNumber(
         cancelAnimationFrame(animationFrame);
       }
     };
-  }, [endValue, duration, delay, easing]); // Include displayValue in deps
+  }, [endValue, duration, delay, easing]);
 
   return Math.round(displayValue);
 }
