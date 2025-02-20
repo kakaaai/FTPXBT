@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running pre-commit checks..."
+
+# Run lint-staged
+npx lint-staged
+
+# Run type checking
+npm run lint
+
+# Ensure no console.logs in production code (except warnings and errors)
+if git diff --cached --name-only | grep -E '\.(js|jsx|ts|tsx)$' > /dev/null; then
+  if git diff --cached | grep -E '^\+.*console\.log' > /dev/null; then
+    echo "❌ Error: Found console.log in staged files. Please remove them before committing."
+    exit 1
+  fi
+fi
+
+echo "✅ Pre-commit checks passed!"

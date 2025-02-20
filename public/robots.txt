@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://hugo-token.com/sitemap.xml
+
+# Common crawl directives
+Disallow: /api/
+Disallow: /_next/
+Disallow: /*?

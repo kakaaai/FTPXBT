@@ -1,0 +1,10 @@
+{
+  "name": "HUGO Token",
+  "short_name": "HUGO",
+  "description": "HUGO is a Solana-based community token centered around dog memes and charitable giving.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00cda0",
+  "orientation": "portrait"
+}

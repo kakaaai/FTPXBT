@@ -1,0 +1,46 @@
+type(scope): subject line
+
+# Body (optional)
+# Explain the problem that this commit is solving. Focus on why you
+# are making this change as opposed to how. Are there side effects
+# or other unintuitive consequences of this change?
+
+# Footer (optional)
+# Reference any issues, PRs, or breaking changes
+# Examples:
+# Fixes #123
+# Breaking Change: `config.prop` has been removed, use `otherConfig.prop`
+# BREAKING CHANGE: API response format changed
+
+# Type can be:
+#   feat     (new feature)
+#   fix      (bug fix)
+#   docs     (documentation changes)
+#   style    (formatting, missing semicolons, etc; no code change)
+#   refactor (refactoring production code)
+#   test     (adding missing tests, refactoring tests)
+#   chore    (updating build tasks, package manager configs, etc)
+#   perf     (performance improvements)
+#   ci       (continuous integration related)
+#   build    (build system or external dependencies)
+#   revert   (revert previous commit)
+
+# Scope is optional and could be anything specifying place of commit change
+# Examples: components, pages, api, utils, styles, etc.
+
+# Subject line:
+#   - Use imperative, present tense: "change" not "changed" nor "changes"
+#   - Don't capitalize first letter
+#   - No dot (.) at the end
+#   - Limit to 50 characters
+#   - Describe what the commit does, not what you did
+
+# Body:
+#   - Wrap at 72 characters
+#   - Use the body to explain what and why vs. how
+#   - Can use multiple lines with "-" for bullet points
+
+# Footer:
+#   - Reference issues and PRs the commit closes
+#   - Breaking changes should start with "BREAKING CHANGE:"
+#   - Close issues with "Fixes #123" or "Closes #123"
