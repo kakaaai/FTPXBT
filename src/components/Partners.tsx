@@ -4,25 +4,25 @@ import { useEffect, useRef } from 'react';
 const partners = [
   {
     name: 'CoinMarketCap',
-    logo: 'https://s2.coinmarketcap.com/static/cloud/img/coinmarketcap_1.svg',
+    logo: '/images/partners/coinmarketcap-1.svg',
     url: 'https://coinmarketcap.com/dexscan/bsc/0x667d805408a2bd9cc84eeab1e480240a4e3cc92b/',
     description: 'Leading cryptocurrency data platform',
   },
   {
     name: 'CoinGecko',
-    logo: 'https://static.coingecko.com/s/coingecko-logo-8903d34ce19ca4be1c81f0db30e924154750d208683fad7ae6f2ce06c76d0a56.png',
+    logo: '/images/partners/CoinGecko Logo.svg',
     url: 'https://www.geckoterminal.com/bsc/pools/0x667d805408a2bd9cc84eeab1e480240a4e3cc92b?utm_source=coingecko&utm_medium=referral&utm_campaign=searchresults',
     description: 'Trusted cryptocurrency data aggregator',
   },
   {
     name: 'PancakeSwap',
-    logo: 'https://pancakeswap.finance/images/tokens/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.svg',
+    logo: '/images/partners/pancakeswap-cake-logo.png',
     url: 'https://pancakeswap.finance/?outputCurrency=0xAC3C6176511771129568Ea308Dd151073498DC7d',
     description: 'Leading decentralized exchange on BNB Chain',
   },
   {
     name: 'GMGN',
-    logo: 'https://gmgn.ai/images/logo.svg',
+    logo: '/images/partners/gmgn.svg',
     url: 'https://gmgn.ai/bsc/token/iH46GPbR_0xac3c6176511771129568ea308dd151073498dc7d',
     description: 'Advanced DeFi analytics and tracking platform',
   },
