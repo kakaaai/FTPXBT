@@ -1,21 +1,6 @@
-# Use Node.js LTS
-FROM node:18-alpine
+# Build stage
+FROM node:18-alpine AS builder
 
-# Install dependencies required for node-canvas
-RUN apk add --no-cache \
-    python3 \
-    make \
-    g++ \
-    cairo-dev \
-    jpeg-dev \
-    pango-dev \
-    giflib-dev \
-    pixman-dev \
-    pangomm-dev \
-    libjpeg-turbo-dev \
-    freetype-dev
-
-# Set working directory
 WORKDIR /app
 
 # Copy package files
@@ -30,8 +15,22 @@ COPY . .
 # Build the app
 RUN npm run build
 
+# Production stage
+FROM node:18-alpine AS runner
+
+WORKDIR /app
+
+# Copy necessary files from builder
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
 # Expose port
 EXPOSE 3000
 
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
+
 # Start the app
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
