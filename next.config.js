@@ -6,6 +6,10 @@ const nextConfig = {
   output: 'standalone',
   images: {
     unoptimized: true,
+    remotePatterns: [],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   // Ensure static files are copied to the correct location
   async rewrites() {
