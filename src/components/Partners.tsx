@@ -1,6 +1,5 @@
 import { config } from '../config';
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 
 const partners = [
   {
@@ -78,15 +77,12 @@ export default function Partners() {
               style={{ animationDelay: `${index * 200}ms` }}
             >
               <div className="w-full h-20 relative flex items-center justify-center group">
-                <div className="relative w-[180px] h-[60px]">
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name}
-                    fill
-                    className="object-contain transition-transform duration-300 group-hover:scale-110"
-                    priority={index < 2}
-                  />
-                </div>
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-w-[180px] max-h-[60px] object-contain transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
               </div>
               <div className="text-center">
                 <h3 className="text-lg font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-2">
